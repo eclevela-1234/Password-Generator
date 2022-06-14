@@ -90,7 +90,8 @@ var generatePassword = function () {
       // restarts function if criteria declined
       if (!confirm) {
         window.alert("No problem! Let's try again!");
-        promptCriteria();
+        delete(passCriteria);
+        generatePassword();
       }
     };
 
@@ -121,13 +122,9 @@ var generatePassword = function () {
     var validate = catChoices.every((element) => {
       return catArray.includes(element);
     });
-    if (validate) {
-      console.log("Password meets selected criteria");
-    } else {
+    if (!validate) {
       genCategories();
     }
-    // console log password with label
-    console.log("Password: " + password1);
   };
 
   // call to promptCriteria function
@@ -152,3 +149,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+

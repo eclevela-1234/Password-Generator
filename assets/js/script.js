@@ -1,8 +1,9 @@
 // Assignment code here
+var generatePassword = function () {
 var passCriteria = {};
 var catChoices = [];
 var catArray = [];
-
+var password1 = "";
 var alertInvalid = function () {
   window.alert("Please enter a valid response.");
 };
@@ -85,15 +86,15 @@ var passChar = {
   numers: ['0','1','2','3','4','5','6','7','8','9']
 };
 
-var randomizer = function (y) {
-  len = passChar[y].length; 
+// var randomizer = function (y) {
+//   len = passChar[y].length; 
 
-  // len = testes.x.length;
-  // console.log(testes.x, len);
-console.log(len);
-};
+//   // len = testes.x.length;
+//   // console.log(testes.x, len);
+// console.log(len);
+// };
 var genCategories = function() {
-  var password1 = ""
+  
   for (var i = 0; i < passCriteria.passLen; i++ ) {
   category = catChoices[(Math.floor((Math.random() * catChoices.length)))];
 
@@ -110,24 +111,18 @@ var genCategories = function() {
   if (!validate) {
     genCategories();
   }
-  // validate
-  // for (var j = 0; j < catString.length; j++) {
-  //   for (var h = 0; h < catChoices.length; h++) {
-  //     if (!catChoices[h]){
-        
-  //     }
-  //   }
-  // }
-  
+
 
 };
 
 
 
-var generatePassword = function () {
-  randomizer("lowers");
+
+
   promptCriteria();
-  return "password";
+  
+ return password1;
+
 };
 
 // Get references to the #generate element
@@ -140,7 +135,6 @@ function writePassword() {
 
   passwordText.value = password;
 
-  console.log("password");
 }
 
 // Add event listener to generate button

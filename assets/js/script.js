@@ -123,6 +123,7 @@ var generatePassword = function () {
       return catArray.includes(element);
     });
     if (!validate) {
+      password1 = "";
       genCategories();
     }
   };

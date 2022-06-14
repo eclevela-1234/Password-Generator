@@ -72,6 +72,7 @@ var promptCriteria = function () {
   promptLength();
   promptBool();
   confirmCrit();
+  // console.log(passChar.specials[3]);
   genCategories();
 };
 
@@ -81,7 +82,7 @@ var passChar = {
   specials: [' ', '!' ,'"', '#', '$', '%', '&', "'", '(' , ")", "*", "+", ',', "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", '\\', ']', '^', '_', "`", "{", "|", "}", "~"],
   lowers: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
   uppers: ['A','B','C,','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-  Numers: ['0','1','2','3','4','5','6','7','8','9']
+  numers: ['0','1','2','3','4','5','6','7','8','9']
 };
 
 var randomizer = function (y) {
@@ -92,16 +93,25 @@ var randomizer = function (y) {
 console.log(len);
 };
 var genCategories = function() {
-  var password = ""
+  var password1 = ""
   for (var i = 0; i < passCriteria.passLen; i++ ) {
-    catString.push(catChoices[(Math.floor((Math.random() * catChoices.length)))]);
+  category = catChoices[(Math.floor((Math.random() * catChoices.length)))];
+
+  catString.push(category);
+  password1 = password1.concat(passChar[category][(Math.floor((Math.random() * passChar[category].length)))]);
   //  console.log(catString); 
 
-  } 
-  
+  }; 
+  console.log(password1);
+  // validate
+  // for (var j = 0; j < catString.length; j++) {
+  //   for (var h = 0; h < catChoices.length; h++) {
+  //     if (catString[j] = catChoices[h] ||   
+  //   }
+  // }
   
 
-}
+};
 
 
 

@@ -1,5 +1,7 @@
 // Assignment code here
 var passCriteria = {};
+var catChoices = [];
+var catString = [];
 
 var alertInvalid = function () {
   window.alert("Please enter a valid response.");
@@ -24,6 +26,7 @@ var promptCriteria = function () {
     );
     if (caseResponse) {
       passCriteria.caseSense = true;
+      catChoices.push("uppers", "lowers");
     } else {
       passCriteria.caseSense = false;
     }
@@ -33,6 +36,7 @@ var promptCriteria = function () {
     );
     if (numResponse) {
       passCriteria.numb = true;
+      catChoices.push("numers");
     } else {
       passCriteria.numb = false;
     }
@@ -42,6 +46,7 @@ var promptCriteria = function () {
     );
     if (specResponse) {
       passCriteria.spec = true;
+      catChoices.push("specials");
     } else {
       passCriteria.spec = false;
     }
@@ -57,14 +62,17 @@ var promptCriteria = function () {
         "\nSpecial Characters: " +
         passCriteria.spec
     );
+      console.log(catChoices);
     if (!confirm) {
       window.alert("No problem! Let's try again!");
       promptCriteria();
     }
+    
   };
   promptLength();
   promptBool();
   confirmCrit();
+  genCategories();
 };
 
 
@@ -83,6 +91,19 @@ var randomizer = function (y) {
   // console.log(testes.x, len);
 console.log(len);
 };
+var genCategories = function() {
+  var password = ""
+  for (var i = 0; i < passCriteria.passLen; i++ ) {
+    catString.push(catChoices[(Math.floor((Math.random() * catChoices.length)))]);
+  //  console.log(catString); 
+
+  } 
+  
+  
+
+}
+
+
 
 var generatePassword = function () {
   randomizer("lowers");

@@ -1,7 +1,7 @@
 // Assignment code here
 var passCriteria = {};
 var catChoices = [];
-var catString = [];
+var catArray = [];
 
 var alertInvalid = function () {
   window.alert("Please enter a valid response.");
@@ -97,16 +97,25 @@ var genCategories = function() {
   for (var i = 0; i < passCriteria.passLen; i++ ) {
   category = catChoices[(Math.floor((Math.random() * catChoices.length)))];
 
-  catString.push(category);
+  catArray.push(category);
   password1 = password1.concat(passChar[category][(Math.floor((Math.random() * passChar[category].length)))]);
   //  console.log(catString); 
 
   }; 
+
+  var validate = catChoices.every(element => {return catArray.includes(element);});
+  console.log(validate);
   console.log(password1);
+
+  if (!validate) {
+    genCategories();
+  }
   // validate
   // for (var j = 0; j < catString.length; j++) {
   //   for (var h = 0; h < catChoices.length; h++) {
-  //     if (catString[j] = catChoices[h] ||   
+  //     if (!catChoices[h]){
+        
+  //     }
   //   }
   // }
   

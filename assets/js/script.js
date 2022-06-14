@@ -51,8 +51,12 @@ var promptCriteria = function () {
     } else {
       passCriteria.spec = false;
     }
+    if (!catChoices[0]) {
+      catChoices.push("lowers");}
   };
   var confirmCrit = function () {
+
+    
     var confirm = window.confirm(
       "Please confirm these criteria for your password:\n\n[Ok] for YES, [Cancel] for NO\n\nPassword Length: " +
         passCriteria.passLen +
@@ -68,7 +72,8 @@ var promptCriteria = function () {
       window.alert("No problem! Let's try again!");
       promptCriteria();
     }
-    
+
+
   };
   promptLength();
   promptBool();

@@ -21,13 +21,14 @@ var promptCriteria = function () {
     }
   };
   // prompt user for boolean responses
+  catChoices.push("lowers");
   var promptBool = function () {
     var caseResponse = window.confirm(
       "Is this password case-sensitive?\n\n[Ok] for YES, [Cancel] for NO"
     );
     if (caseResponse) {
       passCriteria.caseSense = true;
-      catChoices.push("uppers", "lowers");
+      catChoices.push("uppers");
     } else {
       passCriteria.caseSense = false;
     }
@@ -51,8 +52,6 @@ var promptCriteria = function () {
     } else {
       passCriteria.spec = false;
     }
-    if (!catChoices[0]) {
-      catChoices.push("lowers");}
   };
   var confirmCrit = function () {
 
